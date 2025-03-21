@@ -1,0 +1,19 @@
+[project]
+requires-python = ">=3.11"
+dependencies = [
+]
+
+[tool.poetry]
+name = "text-to-voice"
+version = "0.0.0"
+description = "Text to voice clone"
+authors = [
+    "Omar Regino <omarjrz21@gmail.com>"
+]
+readme = "README.md"
+packages = [{include = "text_to_voice", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
