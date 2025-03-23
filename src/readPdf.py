@@ -1,5 +1,5 @@
-from utils.read_file_manager import PdfManager
-from utils.voice_clone_manager import VoiceCloneManager
+from text_to_voice.utils.read_file_manager import PdfManager
+from text_to_voice.utils.voice_clone_manager import VoiceCloneManager
 
 # Example usage
 pdf_manager = PdfManager('example.pdf')
