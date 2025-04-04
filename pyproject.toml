@@ -1,5 +1,5 @@
 [project]
-requires-python = ">=3.11"
+requires-python = ">=3.10"
 dependencies = [
 ]
 
@@ -15,7 +15,7 @@ packages = [{include = "text_to_voice", from = "src"}]
 
 
 [tool.poetry.dependencies]
-python = ">=3.8.1,<4.0"
+python = ">=3.10,<4.0"
 fastapi = "^0.109.0"
 uvicorn = "^0.27.0"
 pyttsx3 = "^2.90"
@@ -23,6 +23,18 @@ PyPDF2 = "^3.0.1"
 python-multipart = "^0.0.6"
 pydantic = "^2.6.0"
 pydantic-settings = "^2.1.0"
+textblob = "^0.19.0"
+langdetect = "^1.0.9"
+pyspellchecker = "^0.8.2"
+spacy = "^3.7.2"
+markitdown = {version = "^0.1.0", extras = ["pdf"]}
+torch = "^2.6.0"
+torchaudio = "^2.6.0"
+np = "^1.0.2"
+transformers = "^4.37.0"
+datasets = "^2.16.0"
+soundfile = "^0.12.1"
+sentencepiece = "^0.2.0"
 
 
 [tool.poetry.group.dev.dependencies]

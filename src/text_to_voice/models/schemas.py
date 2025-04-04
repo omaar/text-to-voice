@@ -1,12 +1,17 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
+from fastapi import UploadFile, File
 
 class TextToVoiceRequest(BaseModel):
-    text: str
-    language: Optional[str] = "es"
-    voice_id: Optional[str] = None
+    pdf_file: UploadFile = File(...)
+    reference_audio: UploadFile = File(...)
 
 class TextToVoiceResponse(BaseModel):
-    audio_url: str
-    duration: float
-    text_length: int 
+    message: str
+    num_pages: int
+    output_files: list[str]
+
+class ExtractTextFromPdfResponse(BaseModel):
+    message: str
+    texts: List[str]
+    num_paragraphs: int
