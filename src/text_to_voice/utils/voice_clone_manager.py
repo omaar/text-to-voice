@@ -4,9 +4,10 @@ from pathlib import Path
 import numpy as np
 from typing import Optional, Union, List
 import logging
+import os
 
 class VoiceCloneManager:
-    def __init__(self, model_path: str, device: str = "cuda" if torch.cuda.is_available() else "cpu"):
+    def __init__(self, model_path: str = None, device: str = "cuda" if torch.cuda.is_available() else "cpu"):
         """
         Inicializa el manager de clonación de voz.
         
@@ -15,12 +16,15 @@ class VoiceCloneManager:
             device (str): Dispositivo a usar (cuda/cpu)
         """
         self.device = device
-        self.model_path = Path(model_path)
+        self.model_path = Path(model_path) if model_path else None
         self.model = None
         self.logger = logging.getLogger(__name__)
         
     def load_model(self) -> None:
         """Carga el modelo f5-tts."""
+        if not self.model_path or not self.model_path.exists():
+            raise ValueError("La ruta del modelo no es válida. Por favor, descarga el modelo primero.")
+            
         try:
             self.model = torch.jit.load(self.model_path, map_location=self.device)
             self.model.eval()
